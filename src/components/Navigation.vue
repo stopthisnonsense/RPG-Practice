@@ -1,9 +1,6 @@
 <template>
   <div class="nav">
-    <router-link v-for="route in routes" :key="route.path" :to="route.path">{{ route.name }}  |</router-link>
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/other">Other</router-link> -->
+    <router-link v-for="route in routes" :key="route.path" :to="route.path">{{ route.name }}</router-link>
   </div>
 </template>
 <script>
@@ -23,11 +20,14 @@ export default {
 <style scoped lang="scss">
     .nav {
     padding: 30px;
+    display: flex;
+    justify-content: center;
 
     a {
+        display: block;
+        padding: .5rem;
         font-weight: bold;
         color: #2c3e50;
-
         &.router-link-exact-active {
         color: #42b983;
         }
