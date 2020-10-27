@@ -1,8 +1,7 @@
 <template>
   <div class="character">
-        <h2>Character</h2>
-        <h3>{{ name }}</h3>
-        <h4>Level: {{level}}</h4>
+        <h2>Character: {{ name }}</h2>
+        <h3>Level: {{level}}</h3>
         <h3>HP: {{currentHp}} / {{maxHp}}</h3>
   </div>
 </template>
@@ -10,12 +9,12 @@
 <script>
     export default {
         data: function() {
-            const player = new Character( "Rico", 1, 100, 100)
+                const player = new Character( "Rico", 1, 100, 100)
             function Character( charName, charLevel, currentHp, maxHp) {
-                    this.charName = charName
-                    this.charLevel = charLevel
-                    this.currentHp = currentHp
-                    this.maxHp = maxHp
+                this.charName = charName
+                this.charLevel = charLevel
+                this.currentHp = currentHp
+                this.maxHp = maxHp
             }
             return {
                 name: player.charName,
@@ -25,6 +24,13 @@
             }
         },
         methods: {
+    damage() {
+      if (this.currentHp > 0) {
+        this.currentHp = this.currentHp - 5;
+      } else {
+        this.currentHp = 0;
+      }
+    }
         }
 
     };
