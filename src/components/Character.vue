@@ -4,6 +4,7 @@
     <h3>Level: {{ level }}</h3>
     <h3>HP: {{ currentHp }} / {{ maxHp }}</h3>
     <button @click="damage" class="button">Take Damage!</button>
+    <button @click="heal" class="button">Heal Damage!</button>
   </div>
 </template>
 
@@ -26,10 +27,19 @@ export default {
   },
   methods: {
     damage() {
+        this.currentHp = this.currentHp - Math.floor(Math.random() * 10);
       if (this.currentHp > 0) {
-        this.currentHp = this.currentHp - 5;
+        return
       } else {
         this.currentHp = 0;
+      }
+    },
+    heal() {
+        this.currentHp = this.currentHp + Math.floor(Math.random() * 10);
+      if (this.currentHp < this.maxHp) {
+        return
+      } else {
+        this.currentHp = this.maxHp;
       }
     }
   }
