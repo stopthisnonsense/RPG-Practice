@@ -28,17 +28,13 @@ export default {
   methods: {
     damage() {
         this.currentHp = this.currentHp - Math.floor(Math.random() * 10);
-      if (this.currentHp > 0) {
-        return
-      } else {
+      if (this.currentHp < 0) {
         this.currentHp = 0;
       }
     },
     heal() {
         this.currentHp = this.currentHp + Math.floor(Math.random() * 10);
-      if (this.currentHp < this.maxHp) {
-        return
-      } else {
+      if (this.currentHp > this.maxHp) {
         this.currentHp = this.maxHp;
       }
     }
