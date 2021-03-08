@@ -6,6 +6,7 @@
 </template>
 <script>
 import Navigation from "@/components/Navigation.vue";
+import "@/components/globals.js";
 export default {
   components: {
     Navigation

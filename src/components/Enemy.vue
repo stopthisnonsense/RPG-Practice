@@ -15,7 +15,7 @@ export default {
     // Character
   },
   data: function() {
-    const player = new Character("Goblin", 1, 100, 100);
+    const badGuy = new Character("Goblin", 1, 100, 100);
     function Character(charName, charLevel, currentHp, maxHp) {
       this.charName = charName;
       this.charLevel = charLevel;
@@ -23,11 +23,25 @@ export default {
       this.maxHp = maxHp;
     }
     return {
-      name: player.charName,
-      level: player.charLevel,
-      currentHp: player.currentHp,
-      maxHp: player.maxHp
+      name: badGuy.charName,
+      level: badGuy.charLevel,
+      currentHp: badGuy.currentHp,
+      maxHp: badGuy.maxHp
     };
   },
+  methods: {
+    damage() {
+    this.currentHp = this.currentHp - Math.floor(Math.random() * 10);
+  if (this.currentHp < 0) {
+    this.currentHp = 0;
+  }
+},
+heal() {
+    this.currentHp = this.currentHp + Math.floor(Math.random() * 10);
+  if (this.currentHp > this.maxHp) {
+    this.currentHp = this.maxHp;
+  }
+}
+  }
 };
 </script>
